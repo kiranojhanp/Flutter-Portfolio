@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'placeholder_widget.dart';
 import 'Profile.dart';
+import 'Contact.dart';
+import 'Projects.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -12,11 +13,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _currentIndex = 0;
 
-  final List<Widget> _children = [
-    Profile(),
-    PlaceholderWidget(Colors.deepOrange),
-    PlaceholderWidget(Colors.green)
-  ];
+  final List<Widget> _children = [Profile(), Projects(), Contact()];
 
   void onTabTapped(int index) {
     setState(() {
@@ -29,12 +26,11 @@ class _HomeState extends State<Home> {
     return Scaffold(
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
-        onTap: onTabTapped, 
-        currentIndex: _currentIndex, 
+        onTap: onTabTapped,
+        currentIndex: _currentIndex,
         backgroundColor: Colors.deepPurple,
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white38,
-
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
               icon: Icon(Icons.person_outline), label: 'Profile'),
